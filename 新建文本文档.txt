@@ -1,0 +1,71 @@
+#include "stdio.h"
+#include"windows.h"
+int right = 0, wrong = 0;
+void add()
+{
+	int a, b, c;
+	a = rand() % 100;
+	b = rand() % 100;
+	printf("请回答:%d+%d=", a, b);
+	scanf_s("%d", &c);
+	if (a + b != c){ printf("回答错误\n"); wrong++; }
+	else { printf("回答正确\n"); right++; }
+}
+void minu()
+{
+	int a, b, c;
+	a = rand() % 100;
+	b = rand() % 100;
+	printf("请回答:%d-%d=", a, b);
+	scanf_s("%d", &c);
+	if (a - b != c){ printf("回答错误\n"); wrong++; }
+	else { printf("回答正确\n"); right++; }
+}
+void mul()
+{
+	int a, b, c;
+	a = rand() % 100;
+	b = rand() % 100;
+	printf("请回答:%d*%d=", a, b);
+	scanf_s("%d", &c);
+	if (a*b != c){ printf("回答错误\n"); wrong++; }
+	else { printf("回答正确\n"); right++; }
+}
+void di()
+{
+	int a, b, c;
+	a = rand() % 100;
+	b = rand() % 100;
+	printf("请回答:%d/%d=", a, b);
+	scanf_s("%d", &c);
+	if (a / b != c){ printf("回答错误\n"); wrong++; }
+	else { printf("回答正确\n"); right++; }
+}
+void main()
+{
+	int choise, con = 0;
+
+	printf("\n\n\t\t欢迎光临我的C语言四则运算程序\n");
+	system("pause");
+	system("cls");
+	while (1)
+	{
+		printf("\n\n\t\t请选择:\n加(输入1)\n减(输入2)\n乘(输入3)\n除(输入4)\n");
+		if (con == 0)scanf_s("%d", &choise);
+		switch (choise)
+		{
+		case 1:add(); break;
+		case 2:minu(); break;
+		case 3:mul(); break;
+		case 4:di(); break;
+
+		}
+		printf("请问您想继续进行这个运算还是重新选择其他运算还是退出程序？\n继续(输入1)，重新(输入2)，退出(输入3)");
+		scanf_s("%d", &con);
+		if (con == 1)con = 1;
+		if (con == 2)con = 0;
+		if (con == 3)break;
+	}
+	printf("您总做了%d个题，正确%d的道，错误%d道！\n", right + wrong, right, wrong);
+	system("pause");
+}
